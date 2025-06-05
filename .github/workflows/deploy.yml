@@ -15,12 +15,12 @@ jobs:
           node-version: 20
       - name: Install dependencies
         run: |
-          npm install -g pnpm
-          pnpm install --recursive
+          npm install --prefix backend
+          npm install --prefix frontend
       - name: Build frontend
         run: |
           cd frontend
-          pnpm run build
+          npm run build
       - name: Deploy frontend to Vercel
         uses: amondnet/vercel-action@v25
         with:
