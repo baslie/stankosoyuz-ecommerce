@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS category (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS equipment (
+  id SERIAL PRIMARY KEY,
+  title TEXT NOT NULL,
+  description TEXT,
+  specs JSONB
+);
