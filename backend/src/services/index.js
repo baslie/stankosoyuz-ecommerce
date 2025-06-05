@@ -1,7 +1,7 @@
 const EquipmentService = require('./equipment')
 
-module.exports = () => {
+module.exports = ({ manager }) => {
   return {
-    equipmentService: new EquipmentService({ manager: this.manager }),
+    equipmentService: new EquipmentService({ manager }),
   }
 }
