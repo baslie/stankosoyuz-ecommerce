@@ -18,9 +18,10 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: npm run develop
+    command: sh -c "npm install && npm run develop"
     volumes:
       - ./backend:/app
+      - backend-node-modules:/app/node_modules
     environment:
       DATABASE_URL: postgres://postgres:postgres@db:5432/stankosoyuz
       REDIS_URL: redis://redis:6379
@@ -35,9 +36,10 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    command: npm run dev
+    command: sh -c "npm install && npm run dev"
     volumes:
       - ./frontend:/app
+      - frontend-node-modules:/app/node_modules
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:9000
     ports:
@@ -46,3 +48,5 @@ services:
       - backend
 volumes:
   db-data:
+  backend-node-modules:
+  frontend-node-modules:
