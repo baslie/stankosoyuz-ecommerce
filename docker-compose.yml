@@ -15,7 +15,9 @@ services:
     ports:
       - '6379:6379'
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     command: npm run develop
     volumes:
       - ./backend:/app
@@ -30,7 +32,9 @@ services:
       - db
       - redis
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     command: npm run dev
     volumes:
       - ./frontend:/app

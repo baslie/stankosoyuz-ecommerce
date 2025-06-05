@@ -9,6 +9,17 @@ backend/    # Medusa.js API
 database/   # SQL схемы и данные
 ```
 
+## Docker
+В каталогах `backend` и `frontend` добавлены собственные `Dockerfile` на основе Node 20. 
+Они копируют код, устанавливают зависимости и запускают:
+- `backend` – `medusa develop` (порт 9000)
+- `frontend` – `next start` (порт 3000)
+
+Сборка и запуск всех сервисов выполняется командой:
+```bash
+docker-compose up --build
+```
+
 ## Быстрый старт
 1. Скопируйте `.env.example` в `.env` и установите переменные.
 2. Запустите локально:
